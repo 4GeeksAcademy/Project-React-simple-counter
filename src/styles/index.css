@@ -1,6 +1,7 @@
 
 body {
     overflow: hidden;
+    margin: 0;
 }
 
 .contador {
@@ -19,10 +20,11 @@ body {
     
 }
 
-.boton {
+.btn-dark {
     position: absolute;
-    top: 300px;
-    right: 600px;
+    top: 55%;
+    right: 50%; /* Ajustamos la distancia desde el borde derecho */
+    transform: translate(50%, -50%); /* Centramos completamente verticalmente */
 }
 
 .move1 {
@@ -34,11 +36,10 @@ body {
     border-radius: 6px;
     border-width: 1px;
     position: absolute;
-    top: 150px;
-    right: 500px;
+    top: 20%;
+    right: 10%;
     
 }
-
 
 .move2 {
     color: #fff; 
@@ -49,8 +50,8 @@ body {
     border-radius: 6px;
     border-width: 1px;
     position: absolute;
-    bottom: 150px;
-    left: 400px;
+    bottom: 15%;
+    left: 10%;
 }
 
 .move3 {
@@ -62,8 +63,8 @@ body {
     border-radius: 6px;
     border-width: 1px;
     position: absolute;
-    bottom: 150px;
-    right: 400px;
+    bottom: 10%;
+    right: 10%;
 }
 
 .move4 {
@@ -75,8 +76,8 @@ body {
     border-radius: 6px;
     border-width: 1px;
     position: absolute;
-    top: 150px;
-    left: 400px;
+    top: 20%;
+    left: 30%;
 }
 
 .imagen {

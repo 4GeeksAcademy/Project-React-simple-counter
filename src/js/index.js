@@ -18,27 +18,30 @@ function CuentaAtras(props){
             <div className="reloj">
                 <i className="fa fa-clock"></i>
             </div>
-            <div className="four">{props.digitFour % 10} {props.digitThree % 10} seconds </div>
-            <div className="two">{props.digitTwo % 10} {props.digitOne % 10} thousandths</div>
+            {/* Utilizamos digit %10 para que nos devuelva el valor entero, no con comas. */}
+            <div className="seconds">{props.digitSecondsLeft % 10} {props.digitSecondsRight % 10} seconds </div>
+            <div className="thousandts">{props.digitThousandthsLeft % 10} {props.digitThousandthsRight % 10} thousandths</div>
         </div>
         );
 }
 
 
-let counter = 1100;
+let counter = 1100; //El contador irá bajando desde aquí, es el numero de referencia
 let interval = setInterval(function(){
-    const four = Math.floor(counter / 1000);
-    const three = Math.floor(counter /100);
-    const two = Math.floor(counter / 10);
-    const one = Math.floor(counter / 1);
-    counter --;
-    if(counter === -1) {
+    const secondsLeft = Math.floor(counter / 1000); // 1 - seconds - - thousandths
+    const secondsRight = Math.floor(counter /100); // 1 1 seconds - - thousandths
+    const thousandthsLeft = Math.floor(counter / 10); // 1 1 seconds 0 - thousandths
+    const thousandthsRight = Math.floor(counter / 1); // 1 1 seconds 0 0 thousandths
+    counter --; // Contador descendente
+    //Si no ponemos un límite el contador seguirá bajando a los números minus. Por lo tanto:
+    //cuando el contador llegue a 0 pararemos. clearInterval() se utiliza para detener un intervalo
+    if(counter === -1) { 
         clearInterval(interval);
     }
 
     ReactDOM.render(<div>
       {/* <Video /> */}
-      <CuentaAtras digitOne={one} digitTwo={two} digitThree={three} digitFour={four}/>
+      <CuentaAtras digitSecondsLeft={secondsLeft} digitSecondsRight={secondsRight} digitThousandthsLeft={thousandthsLeft} digitThousandthsRight={thousandthsRight} />
       <Imagen />
       <Boton />
       <AlertaInicio />
